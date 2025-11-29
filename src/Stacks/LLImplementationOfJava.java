@@ -24,6 +24,7 @@ public class LLImplementationOfJava {
             }
            int x = head.val ;
            head = head.next ;
+           size-- ;
            return x ;
         }
         int peek(){
@@ -58,6 +59,12 @@ public class LLImplementationOfJava {
         }
     }
     public static void main(String[] args) {
-
+        LLStack st = new LLStack() ;
+        System.out.println(st.isEmpty());
+        st.push(4) ;
+        st.push(5) ;
+        st.push(9) ;
+        st.size() ;
+        st.display(); // 4 5 9
     }
 }
