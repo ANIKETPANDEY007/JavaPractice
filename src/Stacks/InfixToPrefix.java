@@ -63,6 +63,5 @@ public class InfixToPrefix {
         }
         String prefix = val.pop() ;
         System.out.println(prefix);
-
     }
 }
