@@ -1,4 +1,8 @@
 package Trees;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack ;
 
 public class Traversals {
     private static void preorder(TreeNode root) {  // Root-Left-Right
@@ -16,11 +20,29 @@ public class Traversals {
         inorder(root.right);  // Right Subtree .
     }
     private static void postorder(TreeNode root) { //  Left-Root-Right
+        // Iterative
         // Base case .
         if (root == null) return ;
         postorder(root.left); // Left Subtree .
-        System.out.print(root.val + " ");
         postorder(root.right);  // Right Subtree .
+        System.out.print(root.val + " ");
+    }
+    private static void postorder2(TreeNode root) { //  Left-Root-Right
+
+        Stack<TreeNode> st = new Stack<>() ;
+        List<Integer> ans = new ArrayList<>() ;
+        if(root!=null) st.push(root);
+        while(st.size()>0){
+            TreeNode top = st.pop() ;
+            ans.add(top.val) ;
+            if(top.left!=null)st.push(top.left) ;
+            if(top.right!=null)st.push(top.right) ;
+        }
+        Collections.reverse(ans) ;
+        for(int ele : ans){
+            System.out.print(ele+" ");
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -40,11 +62,14 @@ public class Traversals {
         System.out.print("Preorder : ");
         preorder(a);
         System.out.println();
-        System.out.print("Postorder : ");
+        System.out.print("Inorder : ");
         inorder(a) ;
         System.out.println();
-        System.out.print("Inorder : ");
+        System.out.print("Postorder : ");
         postorder(a) ;
+        System.out.println();
+        System.out.print("Postorder 2 : ");
+        postorder2(a) ;
 
     }
 }
