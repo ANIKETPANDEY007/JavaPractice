@@ -11,6 +11,5 @@ public class BasicMap {
         System.out.println(map+" -> "+map.size());
         map.remove("Aniket") ;
         System.out.println(map+" -> "+map.size());
-
     }
 }
